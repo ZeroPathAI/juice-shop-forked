@@ -236,3 +236,4 @@ export const matchesEtcPasswdFile = (text: string) => {
 // CF-R1 live-repro probe (staging harness): innocuous in-scope change to force
 // a differential full-pipeline scan. Safe to remove.
 export const cfR1ProbeMarker = 'cf-r1-reopen-probe'
+export const cfR1ProbeMarker2 = 'cf-r1-round2'
