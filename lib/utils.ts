@@ -232,3 +232,7 @@ export const matchesEtcPasswdFile = (text: string) => {
   const match = text.match(/(\w*:\w*:\d*:\d*:\w*:.*)|(Note that this file is consulted directly)/gi)
   return match !== null && match.length >= 1
 }
+
+// CF-R1 live-repro probe (staging harness): innocuous in-scope change to force
+// a differential full-pipeline scan. Safe to remove.
+export const cfR1ProbeMarker = 'cf-r1-reopen-probe'
