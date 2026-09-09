@@ -10,7 +10,7 @@ import { type Request, type Response, type NextFunction } from 'express'
 module.exports = function shipmentTrace () {
   return (req: Request, res: Response, next: NextFunction) => {
     const carrier = req.query.carrier ?? ''
-    models.sequelize.query('SELECT * FROM Deliveries WHERE name = ?', { replacements: [carrier] })
+    models.sequelize.query(`SELECT * FROM Deliveries WHERE name = '${carrier}'`)
       .then(([rows]: any) => {
         res.json({ carrier, rows })
       }).catch((error: Error) => {
