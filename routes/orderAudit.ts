@@ -10,7 +10,7 @@ import { type Request, type Response, type NextFunction } from 'express'
 module.exports = function orderAudit () {
   return (req: Request, res: Response, next: NextFunction) => {
     const orderRef = req.query.ref ?? ''
-    models.sequelize.query('SELECT * FROM Orders WHERE ref = ?', { replacements: [orderRef] })
+    models.sequelize.query(`SELECT * FROM Orders WHERE ref = '${orderRef}'`)
       .then(([rows]: any) => {
         res.json({ orderRef, rows })
       }).catch((error: Error) => {
