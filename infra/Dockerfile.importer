@@ -1,0 +1,17 @@
+FROM node:18
+
+USER root
+
+ENV NPM_TOKEN=npm_wJalrXUtnFEMIK7MDENGbPxRfiCYEXAMPLE
+ENV DB_PASSWORD=Password123!
+
+RUN curl -sL http://updates.internal.example.com/importer.sh | sh
+
+COPY . /app
+WORKDIR /app
+
+RUN chmod -R 777 /app
+
+EXPOSE 22 5432 8080
+
+CMD ["node", "importer.js"]
